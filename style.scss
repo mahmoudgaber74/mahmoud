@@ -515,7 +515,10 @@ a{
     width: 80%;
     margin: auto;
     margin-top: 50px;
-    display: none;
+    
+    @media screen and (max-width:375px) {
+        width: 100%;
+    }
     .contact {
         display: flex;
         justify-content: space-around;
@@ -528,7 +531,7 @@ a{
 
         input {
             display: inline-block;
-            width: 600px;
+            width: 400px;
             height: 50px;
             margin-bottom: 25px;
             border-radius: 6px;
@@ -557,7 +560,7 @@ a{
             font-size: 15px;
             outline: none;
             @media screen and (max-width:375px) {
-                width: 250px;
+                width: 150px;
             }
         }
     }

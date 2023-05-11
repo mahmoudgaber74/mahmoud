@@ -523,7 +523,11 @@ a {
   width: 80%;
   margin: auto;
   margin-top: 50px;
-  display: none;
+}
+@media screen and (max-width: 375px) {
+  .contact-us {
+    width: 100%;
+  }
 }
 .contact-us .contact {
   display: flex;
@@ -538,7 +542,7 @@ a {
 }
 .contact-us .contact input {
   display: inline-block;
-  width: 600px;
+  width: 400px;
   height: 50px;
   margin-bottom: 25px;
   border-radius: 6px;
@@ -569,7 +573,7 @@ a {
 }
 @media screen and (max-width: 375px) {
   .contact-us .contact textarea {
-    width: 250px;
+    width: 150px;
   }
 }
 
