@@ -515,6 +515,7 @@ a{
     width: 80%;
     margin: auto;
     margin-top: 50px;
+    display: none;
     .contact {
         display: flex;
         justify-content: space-around;
@@ -539,11 +540,11 @@ a{
             font-family: $main-font;
 
             @media screen and (max-width:767px) {
-                width: 400px;
+                width: 200px;
                 
             }
             @media screen and (max-width:375px) {
-                width: 250px;
+                width: 200px;
               
             }
         }

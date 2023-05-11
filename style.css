@@ -523,6 +523,7 @@ a {
   width: 80%;
   margin: auto;
   margin-top: 50px;
+  display: none;
 }
 .contact-us .contact {
   display: flex;
@@ -550,12 +551,12 @@ a {
 }
 @media screen and (max-width: 767px) {
   .contact-us .contact input {
-    width: 400px;
+    width: 200px;
   }
 }
 @media screen and (max-width: 375px) {
   .contact-us .contact input {
-    width: 250px;
+    width: 200px;
   }
 }
 .contact-us .contact textarea {
