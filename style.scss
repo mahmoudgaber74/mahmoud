@@ -2,13 +2,14 @@
     font-family: myfont;
     src: url(fonts/Kufyan-Arabic-Black.otf);
 }
+
 $color-main: #e5c67d;
 $color-mai1: #a78c50;
 $color-secn: #202020;
 $color-thir: #171516;
 $color-thi1: #5b5b5b;
 $color-whit: #fff;
-$main-font:  myfont;
+$main-font: myfont;
 
 * {
     box-sizing: border-box;
@@ -16,22 +17,27 @@ $main-font:  myfont;
     padding: 0;
     direction: rtl;
 }
+
 body {
     scroll-behavior: smooth;
-    background-image: linear-gradient(to top left, $color-thi1,$color-secn);
+    background-image: linear-gradient(to top left, $color-thi1, $color-secn);
     color: $color-whit;
 }
+
 body,
 button {
     font-family: $main-font
 }
-a{
+
+a {
     color: $color-main;
 }
+
 // start header section ********************
 .header {
     width: 100%;
     height: 20vh;
+
     .header-nav {
         width: 100%;
         background-image: linear-gradient(to right, $color-thi1, $color-thir);
@@ -43,6 +49,7 @@ a{
         box-shadow: $color-main 0px 4px 0px 0px;
         box-shadow: 0.5px 0.5px 4px $color-secn;
         z-index: 9999;
+
         nav {
             width: 80%;
             margin: auto;
@@ -50,20 +57,25 @@ a{
             justify-content: space-between;
             align-items: center;
             line-height: 80px;
+
             img {
                 display: block;
-                width: 70px ;
+                width: 70px;
                 height: auto;
                 line-height: 80px;
             }
+
             ul {
                 list-style: none;
+
                 @media screen and (max-width:999px) {
                     display: none;
                 }
+
                 li {
                     display: inline-block;
                     padding: 0 20px;
+
                     a {
                         text-decoration: none;
                         color: $color-main;
@@ -73,6 +85,7 @@ a{
                         position: relative;
                         transition: 0.5s ease;
                         padding: 5px;
+
                         &::before {
                             content: '';
                             position: absolute;
@@ -83,18 +96,22 @@ a{
                             background-color: $color-main;
                             transition: 0.5s ease;
                         }
+
                         &:hover {
                             color: $color-thir;
                             transition-delay: 0.5s;
+
                             &::before {
                                 width: 100%;
                             }
+
                             &::after {
                                 height: 100%;
                                 transition-delay: 0.4s;
                                 color: $color-main;
                             }
                         }
+
                         &::after {
                             content: '';
                             position: absolute;
@@ -109,6 +126,7 @@ a{
                     }
                 }
             }
+
             button {
                 color: $color-main;
                 display: inline-block;
@@ -125,9 +143,11 @@ a{
                 color: $color-main;
                 background-color: $color-secn;
                 box-shadow: 1px 1px 5px $color-main;
+
                 @media screen and (max-width:767px) {
                     display: none;
                 }
+
                 &:before {
                     content: "";
                     position: absolute;
@@ -140,13 +160,16 @@ a{
                     left: 100%;
                     transition: all .7s;
                 }
+
                 &:hover {
                     color: $color-thir;
+
                     &:before {
                         top: -30px;
                         left: -30px;
                     }
                 }
+
                 &:active {
                     &:before {
                         background: $color-main;
@@ -157,10 +180,11 @@ a{
         }
     }
 }
+
 // start over view section *****************
 .over-view {
     width: 80%;
-    height:auto;
+    height: auto;
     margin: auto;
     display: flex;
     justify-content: space-between;
@@ -168,51 +192,60 @@ a{
     @media screen and (max-width:767px) {
         flex-direction: column;
     }
+
     .over-view-text {
         margin-top: 60px;
+
         @media screen and (max-width:767px) {
             text-align: center;
             margin-top: 20px;
         }
     }
-        button {
-            display: inline-block;
-            margin-top: 50px;
-            width: 140px;
-            height: 40px;
-            background-color: $color-thir;
-            border: none;
-            color: white;
-            margin-right: 10px;
-            border-radius: 6px;
-            transition: all 1s;
-            font-size: 16px;
 
-            @media screen and (max-width:767px) {
-                margin-top: 10px;
-            }
+    button {
+        display: inline-block;
+        margin-top: 50px;
+        width: 140px;
+        height: 40px;
+        background-color: $color-thir;
+        border: none;
+        color: white;
+        margin-right: 10px;
+        border-radius: 6px;
+        transition: all 1s;
+        font-size: 16px;
+
+        @media screen and (max-width:767px) {
+            margin-top: 10px;
         }
-        .play {
-            background-color: transparent;
-            border: 1px solid $color-whit;
+    }
+
+    .play {
+        background-color: transparent;
+        border: 1px solid $color-whit;
+        color: $color-whit;
+
+        &:hover {
+            background-color: $color-thir;
             color: $color-whit;
-            &:hover {
-                background-color: $color-thir;
-                color: $color-whit;
-            }
         }
-        .app {
-            &:hover {
-                background-color: transparent;
-                color: $color-thir;
-                border: 1px solid $color-thir;
-            }
+    }
+
+    .app {
+        &:hover {
+            background-color: transparent;
+            color: $color-thir;
+            border: 1px solid $color-thir;
         }
+    }
+
     .over-view-imge {
         position: relative;
-       @media screen and (max-width:767px) {
-        display: none;
-       }
+
+        @media screen and (max-width:767px) {
+            display: none;
+        }
+
         .shap {
             width: 300px;
             height: 300px;
@@ -220,6 +253,7 @@ a{
             margin-top: 50px;
             border-radius: 30% 70% 57% 43% / 41% 60% 40% 59%;
         }
+
         .shap-img {
             position: absolute;
             width: 400px;
@@ -231,36 +265,42 @@ a{
         }
     }
 }
+
 // start section two ( features )**********************************
-.features{
+.features {
     margin-top: 50px;
     display: flex;
-    flex-direction:column;
+    flex-direction: column;
     align-items: center;
     justify-content: space-around;
-    h2{
+
+    h2 {
         margin-bottom: 40px;
+
         // margin-right: 120px;
         @media screen and (max-width:767px) {
             font-size: 20px;
         }
-        span{
+
+        span {
             display: inline-block;
             width: 50px;
             height: 5px;
             background-color: $color-whit;
         }
     }
+
     .all {
         width: 80%;
         margin: auto;
         display: flex;
         justify-content: space-between;
         align-items: center;
+
         @media screen and (max-width:767px) {
             flex-direction: column;
         }
-        
+
         div {
             width: 200px;
             height: 200px;
@@ -268,19 +308,24 @@ a{
             padding: 50px 10px;
             text-align: center;
             border-radius: 35px;
+
             @media screen and (max-width:1300px) {
                 margin: 10px;
             }
+
             @media screen and (max-width:767px) {
                 margin: 10px;
             }
+
             &:hover {
                 transform: rotate(5deg);
             }
+
             ion-icon {
                 font-size: 35px;
                 color: $color-thir;
             }
+
             span {
                 display: block;
                 width: 50px;
@@ -294,16 +339,19 @@ a{
                 }
             }
         }
+
         .odd {
             margin-top: -50px;
+
             @media screen and (max-width:767px) {
                 margin-top: 0;
                 display: inline-block;
             }
         }
     }
-    
+
 }
+
 // start section three ( prices )**********************************
 .prices1 {
     width: 100%;
@@ -316,6 +364,7 @@ a{
         padding-right: 130px;
         padding-top: 30px;
         text-align: center;
+
         @media screen and (max-width:767px) {
             font-size: 20px;
             padding-right: 0;
@@ -395,6 +444,7 @@ a{
         }
     }
 }
+
 // start section four ( download ) *******************************
 .download-app {
     width: 100%;
@@ -405,19 +455,24 @@ a{
     display: flex;
     padding: 10px 130px;
     align-items: center;
+
     @media screen and (max-width:767px) {
         text-align: center;
         padding: 10px 20px;
     }
+
     .download-app-text {
         width: 50%;
+
         @media screen and (max-width:767px) {
             width: 100%;
         }
+
         p {
             padding: 20px 0;
         }
     }
+
     button {
         margin-top: 10px;
         width: 140px;
@@ -427,15 +482,18 @@ a{
         color: white;
         border-radius: 6px;
         margin: 0 10px;
+
         @media screen and (max-width:992px) {
             margin-bottom: 10px;
         }
+
         &:hover {
             background-color: $color-whit;
             color: $color-thir;
             box-shadow: 1px 1px 5px $color-whit;
         }
     }
+
     .download-app-imag {
         width: 500px;
         height: 300px;
@@ -448,7 +506,8 @@ a{
             display: none;
         }
     }
-} 
+}
+
 // start section five (counter) **********************************
 .counter {
     width: 80%;
@@ -476,6 +535,7 @@ a{
 
         h2 {
             font-size: 30px;
+
             @media screen and (max-width:767px) {
                 font-size: 20px;
             }
@@ -488,13 +548,17 @@ a{
         }
     }
 }
+
 // start section six (slider )************************************
 .swiper {
     width: 90%;
-    height:auto;
-    .swiper-button-prev,.swiper-button-next{
+    height: auto;
+
+    .swiper-button-prev,
+    .swiper-button-next {
         color: $color-mai1;
     }
+
     .swiper-slide {
         text-align: center;
         font-size: 18px;
@@ -503,6 +567,7 @@ a{
         justify-content: center;
         align-items: center;
     }
+
     h2 {
         margin-top: 30px;
         margin-bottom: 30px;
@@ -510,15 +575,17 @@ a{
         font-size: 40px;
     }
 }
+
 // start section seven (contact us )
 .contact-us {
     width: 80%;
     margin: auto;
     margin-top: 50px;
-    
+
     @media screen and (max-width:375px) {
         width: 100%;
     }
+
     .contact {
         display: flex;
         justify-content: space-around;
@@ -544,11 +611,12 @@ a{
 
             @media screen and (max-width:767px) {
                 width: 200px;
-                
+
             }
+
             @media screen and (max-width:375px) {
                 width: 200px;
-              
+
             }
         }
 
@@ -559,20 +627,25 @@ a{
             color: $color-thir;
             font-size: 15px;
             outline: none;
-            @media screen and (max-width:375px) {
-                width: 150px;
-                height: 50px;
+            overflow: hidden;
+
+            @media screen and (max-width:767px) {
+                display: none;
+                width: 200px;
             }
         }
     }
 }
+
 // start  sectio eigth ( footer )
 .footer {
     width: 100%;
     background-color: $color-thir;
+
     @media screen and (max-width:375px) {
         margin-top: 30px;
     }
+
     .flex0 {
         width: 80%;
         height: 250px;
@@ -581,9 +654,11 @@ a{
         justify-content: space-between;
         padding-top: 30px;
         color: $color-whit;
+
         @media screen and (max-width:375px) {
             width: 95%;
         }
+
         @media screen and (max-width:767px) {
             display: block;
         }
