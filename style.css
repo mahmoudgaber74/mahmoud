@@ -501,7 +501,8 @@ a {
   width: 90%;
   height: auto;
 }
-.swiper .swiper-button-prev, .swiper .swiper-button-next {
+.swiper .swiper-button-prev,
+.swiper .swiper-button-next {
   color: #a78c50;
 }
 .swiper .swiper-slide {
@@ -570,10 +571,12 @@ a {
   color: #171516;
   font-size: 15px;
   outline: none;
+  overflow: hidden;
 }
-@media screen and (max-width: 375px) {
+@media screen and (max-width: 767px) {
   .contact-us .contact textarea {
-    width: 150px;
+    display: none;
+    width: 200px;
   }
 }
 
