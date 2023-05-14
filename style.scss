@@ -16,11 +16,11 @@ $main-font: myfont;
     margin: 0;
     padding: 0;
     direction: rtl;
+    scroll-behavior: smooth;
 }
 
 body {
-    scroll-behavior: smooth;
-    background-image: linear-gradient(to top left, $color-thi1, $color-secn);
+    background-color: #202020;
     color: $color-whit;
 }
 
@@ -31,12 +31,71 @@ button {
 
 a {
     color: $color-main;
+    text-decoration: none;
 }
+
+%flex {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+%center {
+    margin: auto;
+    width: 80%;
+}
+
+%animation {
+    -webkit-animation: mover 1s infinite alternate;
+    animation: mover 1s infinite alternate;
+
+    @-webkit-keyframes mover {
+        0% {
+            transform: translateY(0);
+        }
+
+        100% {
+            transform: translateY(-20px);
+        }
+    }
+
+    @keyframes mover {
+        0% {
+            transform: translateY(0);
+        }
+
+        100% {
+            transform: translateY(-20px);
+        }
+    }
+}
+
+// scroll btn
+.scroll {
+    position: absolute;
+    bottom: 0;
+    right: 10px;
+    width: 40px;
+    height: 40px;
+    background-color: $color-main;
+    border-radius: 5px;
+    position: fixed;
+    display: none;
+    border: none;
+    transition: 1s;
+    @extend %flex;
+
+    ion-icon {
+        color: $color-thir;
+        font-size: 25px;
+    }
+}
+
+// hamburger menu
 
 // start header section ********************
 .header {
     width: 100%;
-    height: 20vh;
 
     .header-nav {
         width: 100%;
@@ -46,23 +105,27 @@ a {
         top: 0;
         left: 0;
         right: 0;
-        box-shadow: $color-main 0px 4px 0px 0px;
         box-shadow: 0.5px 0.5px 4px $color-secn;
         z-index: 9999;
 
         nav {
-            width: 80%;
-            margin: auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            @extend %center;
+            @extend %flex;
             line-height: 80px;
 
+            @media screen and (max-width:767px) {
+                display: flex;
+                justify-content: space-between;
+                padding: 15px;
+            }
+
             img {
+
                 display: block;
-                width: 70px;
+                width: 60px;
                 height: auto;
                 line-height: 80px;
+                @extend %flex;
             }
 
             ul {
@@ -72,18 +135,21 @@ a {
                     display: none;
                 }
 
+                @media screen and (min-width:768px) {
+                    display: block;
+                }
+
                 li {
                     display: inline-block;
-                    padding: 0 20px;
+                    margin: 0 15px;
+
 
                     a {
-                        text-decoration: none;
                         color: $color-main;
-                        font-size: 15px;
-                        font-weight: lighter;
+                        font-size: 16px;
                         background: transparent;
                         position: relative;
-                        transition: 0.5s ease;
+                        transition: 0.2s ease;
                         padding: 5px;
 
                         &::before {
@@ -124,6 +190,11 @@ a {
                             z-index: -1;
                         }
                     }
+
+                    .active {
+                        color: $color-whit;
+                    }
+
                 }
             }
 
@@ -141,10 +212,9 @@ a {
                 font-size: 15px;
                 border-radius: 6px;
                 color: $color-main;
-                background-color: $color-secn;
-                box-shadow: 1px 1px 5px $color-main;
+                background-color: transparent;
 
-                @media screen and (max-width:767px) {
+                @media screen and (max-width:999px) {
                     display: none;
                 }
 
@@ -177,6 +247,27 @@ a {
                     }
                 }
             }
+
+            .hamburger {
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+                background-color: $color-main;
+                @extend %flex;
+                text-align: center;
+                align-items: center;
+                display: none;
+
+                ion-icon {
+                    color: $color-thir;
+                    font-size: 40px;
+                }
+
+                @media screen and (max-width:767px) {
+                    display: block;
+                }
+
+            }
         }
     }
 }
@@ -184,21 +275,25 @@ a {
 // start over view section *****************
 .over-view {
     width: 80%;
-    height: auto;
+    height: 100vh;
     margin: auto;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
+    align-items: center;
 
-    @media screen and (max-width:767px) {
+    @media screen and (max-width:768px) {
+        text-align: center;
+        margin-top: 100px;
         flex-direction: column;
+        height: auto;
     }
 
     .over-view-text {
-        margin-top: 60px;
+        align-items: center;
 
         @media screen and (max-width:767px) {
             text-align: center;
-            margin-top: 20px;
+            margin-top: 10px;
         }
     }
 
@@ -215,8 +310,8 @@ a {
         transition: all 1s;
         font-size: 16px;
 
-        @media screen and (max-width:767px) {
-            margin-top: 10px;
+        @media screen and (max-width:768px) {
+            margin: 20px;
         }
     }
 
@@ -226,16 +321,18 @@ a {
         color: $color-whit;
 
         &:hover {
-            background-color: $color-thir;
-            color: $color-whit;
+            background-color: $color-whit;
+            color: $color-thi1;
         }
     }
 
     .app {
+        border: 2px solid $color-thi1;
+
         &:hover {
-            background-color: transparent;
-            color: $color-thir;
-            border: 1px solid $color-thir;
+            border: none;
+            background-color: $color-whit;
+            color: $color-thi1;
         }
     }
 
@@ -247,39 +344,37 @@ a {
         }
 
         .shap {
-            width: 300px;
-            height: 300px;
+            width: 400px;
+            height: 400px;
             background-color: $color-thir;
-            margin-top: 50px;
             border-radius: 30% 70% 57% 43% / 41% 60% 40% 59%;
+            @extend %animation;
+
         }
 
         .shap-img {
             position: absolute;
-            width: 400px;
-            height: 400px;
+            width: 500px;
+            height: 500px;
             background-image: url(images/slider-one/mockup01-removebg-preview.png);
             background-position: center;
             background-size: cover;
             top: 0;
+            @extend %animation
         }
     }
 }
 
-// start section two ( features )**********************************
+//start section two ( features )**********************************
 .features {
-    margin-top: 50px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
+    text-align: center;
 
     h2 {
-        margin-bottom: 40px;
+        margin-bottom: 100px;
 
-        // margin-right: 120px;
-        @media screen and (max-width:767px) {
+        @media screen and (max-width:768px) {
             font-size: 20px;
+            margin-top: 200px;
         }
 
         span {
@@ -291,11 +386,8 @@ a {
     }
 
     .all {
-        width: 80%;
-        margin: auto;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+        @extend %center;
+        @extend %flex;
 
         @media screen and (max-width:767px) {
             flex-direction: column;
@@ -308,13 +400,16 @@ a {
             padding: 50px 10px;
             text-align: center;
             border-radius: 35px;
+            transition: 0.5s;
 
             @media screen and (max-width:1300px) {
                 margin: 10px;
             }
 
-            @media screen and (max-width:767px) {
-                margin: 10px;
+            @media screen and (max-width:768px) {
+                margin: 5px;
+                font-size: 12px;
+                height: 150px;
             }
 
             &:hover {
@@ -323,14 +418,14 @@ a {
 
             ion-icon {
                 font-size: 35px;
-                color: $color-thir;
+                color: $color-whit;
             }
 
             span {
                 display: block;
                 width: 50px;
                 height: 4px;
-                background-color: $color-thir;
+                background-color: $color-whit;
                 margin-right: 65px;
                 margin-top: 20px;
 
@@ -356,12 +451,10 @@ a {
 .prices1 {
     width: 100%;
     margin: auto;
-    margin-top: 50px;
+    margin-top: 100px;
     height: auto;
 
     h1 {
-        // color: $color-whit;
-        padding-right: 130px;
         padding-top: 30px;
         text-align: center;
 
@@ -395,19 +488,19 @@ a {
             height: 370px;
             padding: 50px 20px;
             text-align: center;
-            transition: 0.5s ease-in-out;
             border-radius: 6px;
             color: $color-whit;
-            background-color: $color-secn ;
+            background-color: $color-thir;
+            transition: 0.5s;
+
+            &:hover {
+                transform: rotate(5deg);
+            }
 
             @media screen and (max-width:767px) {
                 width: 80%;
                 margin: auto;
                 margin-bottom: 40px;
-            }
-
-            &:hover {
-                transform: scale(1.1);
             }
 
             .icons {
@@ -440,7 +533,7 @@ a {
         }
 
         .center {
-            transform: scaleY(1.1);
+            border: 2px solid $color-thi1;
         }
     }
 }
@@ -450,22 +543,24 @@ a {
     width: 100%;
     height: auto;
     background-color: $color-thir;
-    margin-top: 60px;
+    margin-top: 100px;
     color: $color-whit;
     display: flex;
-    padding: 10px 130px;
     align-items: center;
+    justify-content: space-between;
 
-    @media screen and (max-width:767px) {
+    @media screen and (max-width:768px) {
         text-align: center;
         padding: 10px 20px;
     }
 
     .download-app-text {
-        width: 50%;
+        width: 60%;
+        padding: 0 140px;
 
-        @media screen and (max-width:767px) {
+        @media screen and (max-width:768px) {
             width: 100%;
+            padding: 0;
         }
 
         p {
@@ -496,11 +591,10 @@ a {
 
     .download-app-imag {
         width: 500px;
-        height: 300px;
+        height: 400px;
         background-image: url(images/slider-one/download.png);
         background-size: cover;
         background-position: center;
-        border-left: 1px solid $color-main;
 
         @media screen and (max-width:767px) {
             display: none;
@@ -513,6 +607,7 @@ a {
     width: 80%;
     margin: auto;
     margin-top: 80px;
+    margin-bottom: 150px;
 
     .counter-text {
         text-align: center;
@@ -527,6 +622,7 @@ a {
 
         ion-icon {
             font-size: 45px;
+            color: $color-main;
 
             @media screen and (max-width:767px) {
                 font-size: 25px;
@@ -544,7 +640,7 @@ a {
         p {
             font-size: 12px;
             font-weight: lighter;
-            color: $color-whit;
+            color: $color-main;
         }
     }
 }
@@ -552,27 +648,31 @@ a {
 // start section six (slider )************************************
 .swiper {
     width: 90%;
-    height: auto;
+    height: 100%;
 
     .swiper-button-prev,
     .swiper-button-next {
-        color: $color-mai1;
+        color: transparent
     }
 
     .swiper-slide {
         text-align: center;
         font-size: 18px;
-        background: #fff;
         display: flex;
         justify-content: center;
         align-items: center;
+
+        img {
+            width: 99%;
+            height: 500px;
+        }
     }
 
     h2 {
         margin-top: 30px;
         margin-bottom: 30px;
         text-align: center;
-        font-size: 40px;
+        font-size: 30px;
     }
 }
 
@@ -580,7 +680,8 @@ a {
 .contact-us {
     width: 80%;
     margin: auto;
-    margin-top: 50px;
+    margin-top: 200px;
+    text-align: center;
 
     @media screen and (max-width:375px) {
         width: 100%;
@@ -590,6 +691,7 @@ a {
         display: flex;
         justify-content: space-around;
         padding: 20px;
+        text-align: center;
 
         @media screen and (max-width:1300px) {
             display: block;
@@ -598,29 +700,30 @@ a {
 
         input {
             display: inline-block;
-            width: 400px;
+            width: 600px;
             height: 50px;
             margin-bottom: 25px;
             border-radius: 6px;
             outline: none;
-            border: 2px solid $color-main;
+            border: 1px solid $color-main;
             padding: 10px;
             font-size: 12px;
             color: $color-thir;
             font-family: $main-font;
+            background-color: $color-secn;
 
             @media screen and (max-width:767px) {
-                width: 200px;
-
+                width: 250px;
             }
 
             @media screen and (max-width:375px) {
-                width: 200px;
-
+                width: 250px;
             }
         }
 
         textarea {
+            width: 400px;
+            height: 200px;
             border: 2px solid $color-main;
             font-family: $main-font;
             padding: 10px;
@@ -628,10 +731,17 @@ a {
             font-size: 15px;
             outline: none;
             overflow: hidden;
+            background-color: $color-secn;
+
+
+            @media screen and (max-width:768px) {
+                width: 600px;
+                height: 150px;
+            }
 
             @media screen and (max-width:767px) {
-                display: none;
-                width: 200px;
+                width: 250px;
+                height: 150px;
             }
         }
     }
@@ -644,6 +754,7 @@ a {
 
     @media screen and (max-width:375px) {
         margin-top: 30px;
+        text-align: center;
     }
 
     .flex0 {
@@ -662,12 +773,27 @@ a {
         @media screen and (max-width:767px) {
             display: block;
         }
+
+        @media screen and (max-width:768px) {
+            width: 100%;
+            padding: 10px;
+        }
+
+
     }
 
     .two,
     .three {
         @media screen and (max-width:767px) {
             display: none;
+        }
+    }
+
+    .two {
+        p {
+            a {
+                color: $color-whit;
+            }
         }
     }
 
